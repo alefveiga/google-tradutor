@@ -10,7 +10,7 @@ export default {
         background: '#f1f3f4',
         secondaryBackground: '#f5f5f5',
         headerColor: '#5f6368',
-        textcolor: '#3c4043',
+        textColor: '#3c4043',
       },
     },
   },
