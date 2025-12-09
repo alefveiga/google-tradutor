@@ -70,6 +70,8 @@ function App() {
           {/* Top controls */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <select
+              id="sourceLang"
+              name="sourceLang"
               value={sourceLang}
               onChange={(e) => setSourceLang(e.target.value)}
               className="text-sm text-textColor bg-transparent border-none focus:outline-none cursor-pointer"
@@ -102,6 +104,8 @@ function App() {
             </button>
 
             <select
+              id="targetLang"
+              name="targetLang"
               value={targetLang}
               onChange={(e) => setTargetLang(e.target.value)}
               className="text-sm text-textColor bg-transparent border-none focus:outline-none cursor-pointer"
@@ -118,6 +122,8 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="p-4">
               <textarea
+                id="sourceText"
+                name="sourceText"
                 value={sourceText}
                 onChange={(e) => setSourceText(e.target.value)}
                 placeholder="Digite seu texto..."
