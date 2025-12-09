@@ -16,28 +16,27 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [translatedText, setTranslatedText] = useState('');
 
-  // Função de tradução
-  const handleTranslate = async () => {
-    if (!sourceText.trim()) return;
-
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
-          sourceText
-        )}&langpair=${sourceLang}|${targetLang}`
-      );
-      const data = await response.json();
-      setTranslatedText(data.responseData.translatedText);
-    } catch (error) {
-      console.error('Erro na tradução:', error);
-      setTranslatedText('Erro na tradução');
-    }
-    setIsLoading(false);
-  };
-
   // useEffect com debounce para traduzir automaticamente
   useEffect(() => {
+    const handleTranslate = async () => {
+      if (!sourceText.trim()) return;
+
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
+            sourceText
+          )}&langpair=${sourceLang}|${targetLang}`
+        );
+        const data = await response.json();
+        setTranslatedText(data.responseData.translatedText);
+      } catch (error) {
+        console.error('Erro na tradução:', error);
+        setTranslatedText('Erro na tradução');
+      }
+      setIsLoading(false);
+    };
+
     let delay;
     if (sourceText) {
       delay = setTimeout(() => {
